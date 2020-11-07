@@ -6,11 +6,6 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-// app.use(express.static("public/css"));
-// app.use(express.static("public/html"));
-// app.use(express.static("public/js"));
-
-
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
