@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Workout = require("../../models/workout.js");
 
+// posts a new workout
 router.post("/", ({ body }, res) => {
   Workout.create(body)
     .then(dbWorkout => {
@@ -12,6 +13,7 @@ router.post("/", ({ body }, res) => {
     });
 });
 
+// gets a workout
 router.get("/", (req, res) => {
   Workout.find({})
     .sort({ day: 1 })
@@ -23,6 +25,7 @@ router.get("/", (req, res) => {
     });
 });
 
+// updates an existing workout
 router.put("/:id", ({ body, params }, res) => {
   Workout.update(
     { 
@@ -46,6 +49,7 @@ router.put("/:id", ({ body, params }, res) => {
   );
 });
 
+// gets workout in range
 router.get("/range", (_, res) => {
   let lowerRange = new Date();
   lowerRange.setDate(lowerRange.getDate() - 7);
