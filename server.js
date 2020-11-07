@@ -5,6 +5,7 @@ const routes = require("./routes")
 // port definition
 const PORT = process.env.PORT || 3000;
 
+// initializing express server
 const app = express();
 
 // middleware
